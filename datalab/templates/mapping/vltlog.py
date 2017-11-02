@@ -1,4 +1,6 @@
+
 VLTLOG_MAPPING = {
+  "template" : "vltlog-*",
   "mappings": {
     "fevt": {
       "_all": {
@@ -203,7 +205,7 @@ VLTLOG_MAPPING = {
         }
       }
     },
-   "flog": {
+    "flog": {
       "_all": {
         "enabled": "false"
       },
@@ -259,7 +261,7 @@ VLTLOG_MAPPING = {
             }
           }
        },
-       "keywvalue": {
+        "keywvalue": {
           "type": "text",
           "fields": {
             "keyword": {
@@ -300,7 +302,7 @@ VLTLOG_MAPPING = {
         }
       }
     },
-   "err": {
+    "err": {
       "_all": {
         "enabled": "false"
       },
@@ -356,7 +358,7 @@ VLTLOG_MAPPING = {
             }
           }
         },
-       "keywvalue": {
+        "keywvalue": {
           "type": "text",
           "fields": {
             "keyword": {
@@ -397,7 +399,7 @@ VLTLOG_MAPPING = {
         }
       }
     },
-   "fpar": {
+    "fpar": {
       "_all": {
         "enabled": "false"
       },
@@ -453,7 +455,7 @@ VLTLOG_MAPPING = {
             }
           }
         },
-       "keywvalue": {
+        "keywvalue": {
           "type": "text",
           "fields": {
             "keyword": {
@@ -496,8 +498,25 @@ VLTLOG_MAPPING = {
     }
   },
   "settings": {
-    "index.number_of_shards" : "20",
+    "index.number_of_shards" : "4",
     "index.number_of_replicas" : "0",
-    "index.query.default_field": "logtext"
+    "index.query.default_field": "logtext",
+    "index.write.wait_for_active_shards": "0"
+  },
+  "aliases": {
+    "vltlog": {}
   }
 }
+
+if __name__ == '__main__':
+    #ELASTICSEARCH CLIENT PYTHON API BUG put_template doesn't work
+    #from elasticsearch import Elasticsearch
+    #es = Elasticsearch("http://134.171.189.10")
+    #es.put_template(id="vltlog", body=VLTLOG_MAPPING)
+    #es.get_template(id="vltlog")
+
+    import requests, json
+    url = "http://134.171.189.10:9200/_template/vltlog"
+    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+    r = requests.post(url, data=json.dumps(VLTLOG_MAPPING), headers=headers)
+

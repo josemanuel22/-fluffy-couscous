@@ -135,7 +135,7 @@ def _get_daily_index_name(es_index_name):
     :param: index_name the prefix to be used in the index
     :return: A srting containing the elasticsearch indexname used which should include the date.
     """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.now().strftime('%Y.%m.%d'))
+    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y.%m.%d'))
 
 
 def _get_weekly_index_name(es_index_name):
@@ -143,7 +143,7 @@ def _get_weekly_index_name(es_index_name):
     :param: index_name the prefix to be used in the index
     :return: A srting containing the elasticsearch indexname used which should include the date and specific week
     """
-    current_date = datetime.datetime.now()
+    current_date = datetime.datetime.utcnow()
     start_of_the_week = current_date - datetime.timedelta(days=current_date.weekday())
     return "{0!s}-{1!s}".format(es_index_name, start_of_the_week.strftime('%Y.%m.%d'))
 
@@ -153,7 +153,7 @@ def _get_monthly_index_name(es_index_name):
     :param: index_name the prefix to be used in the index
     :return: A srting containing the elasticsearch indexname used which should include the date and specific moth
     """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.now().strftime('%Y.%m'))
+    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y.%m'))
 
 
 def _get_yearly_index_name(es_index_name):
@@ -161,7 +161,7 @@ def _get_yearly_index_name(es_index_name):
     :param: index_name the prefix to be used in the index
     :return: A srting containing the elasticsearch indexname used which should include the date and specific year
     """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.now().strftime('%Y'))
+    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y'))
 
 def _get_only_index_name(es_index_name):
     """ Return elasticsearch index name
