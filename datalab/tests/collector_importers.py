@@ -33,7 +33,7 @@ class MyTestCase(unittest.TestCase):
         db_connection = db_connection_setUp(DB_SESSION)
         kairos_server = "http://134.171.189.10:8080"
         es_object = es_connection_setUp("134.171.189.10:9200")
-        present = datetime.datetime.now()
+        present = datetime.datetime.utcnow()
         past= present - datetime.timedelta(seconds=10)
         period = (past, present)
         collector_datalab_period(db_connection, period, kairos_server, es_object, index_suffix="test_collector_datalab_period")
@@ -41,12 +41,12 @@ class MyTestCase(unittest.TestCase):
         self.assertGreater(_es_is_data(es_object, 'vltlog', 'fpar', past, present), 0)
 
     def test_collector_datalab_present(self):
-        collectors_importers.set_debug(False)
+        collectors_importers.set_debug(True)
         db_connection = db_connection_setUp(DB_SESSION)
         kairos_server = "http://134.171.189.10:8080"
         es_object = es_connection_setUp("134.171.189.10:9200")
         delay=100
-        past = datetime.datetime.now() - datetime.timedelta(seconds=delay)
+        past = datetime.datetime.utcnow() - datetime.timedelta(seconds=delay)
         present = past + datetime.timedelta(seconds=100)
         collector_datalab_present(db_connection, kairos_server, es_object, delay=delay, index_suffix_frecuency=SuffixNameFrecuency.MONTHLY)
         time.sleep(UPDATETIME)

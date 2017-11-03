@@ -104,7 +104,7 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
     try:
         past = _getcollector_present_piglet("collector_present_pigglet", "python_log")  # datetime.datetime.now();
         present = past + datetime.timedelta(seconds=100)
-        while datetime.datetime.now() - present > 0:  # Tenemos retraso! Hay que ponerse al dia e insertar sin delay
+        while datetime.datetime.utcnow() - present > 0:  # Tenemos retraso! Hay que ponerse al dia e insertar sin delay
             index_suffix= _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
             (response, n_data_inserted, es_ok, es_result) = collector_datalab_period(db_connection, (past, present),
                                                                                      kairos_server, es_object,
@@ -119,10 +119,10 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
                                      extra={'collector_piglet': present})
 
             past = present;
-            present = past + datetime.timedelta(seconds=100) + datetime.timedelta(hours=3)
-        present = datetime.datetime.now()
+            present = past + datetime.timedelta(seconds=100)
+        present = datetime.datetime.utcnow()
     except:  # No se ha encontrado al indice, esto quiere decir que nunca se ejecuto el collector
-        past = datetime.datetime.now() - datetime.timedelta(seconds=delay.total_seconds()) + datetime.timedelta(hours=3)
+        past = datetime.datetime.utcnow() - datetime.timedelta(seconds=delay.total_seconds())
         present = past + datetime.timedelta(seconds=delay.total_seconds());
 
     time.sleep(delay.total_seconds())
@@ -144,8 +144,8 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
         past = present;
         datalab_logger_collecter_inserters.info(
             "collector_datalab_present : delay time %s" % str(
-                datetime.datetime.now() + datetime.timedelta(hours=3) - past))
-        present = datetime.datetime.now() + datetime.timedelta(hours=3)
+                datetime.datetime.utcnow() - past))
+        present = datetime.datetime.utcnow()
         if present - past > delay:
             x = (present - past) - delay
             if x > delay:
@@ -178,7 +178,7 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
             past = _getcollector_backwards_piglet("collector_backwards_piglet",
                                                   "python_log")  # datetime.datetime.now();
         except:
-            past = datetime.datetime.now();
+            past = datetime.datetime.utcnow();
     present = past - datetime.timedelta(seconds=100);
     while True:
         index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
