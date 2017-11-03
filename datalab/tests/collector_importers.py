@@ -41,7 +41,7 @@ class MyTestCase(unittest.TestCase):
         self.assertGreater(_es_is_data(es_object, 'vltlog', 'fpar', past, present), 0)
 
     def test_collector_datalab_present(self):
-        collectors_importers.set_debug(True)
+        collectors_importers.set_debug(False)
         db_connection = db_connection_setUp(DB_SESSION)
         kairos_server = "http://134.171.189.10:8080"
         es_object = es_connection_setUp("134.171.189.10:9200")

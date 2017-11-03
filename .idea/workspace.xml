@@ -14,24 +14,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="kairos_importers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/src/importers/kairos_importers.py">
+      <file leaf-file-name="datalab_loggers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalab/src/loggers/datalab_loggers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+            <state relative-caret-position="45">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="csv_importers.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="csv_importers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/tests/csv_importers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="95" column="97" lean-forward="false" selection-start-line="95" selection-start-column="97" selection-end-line="95" selection-end-column="97" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-970">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,8 +49,8 @@
       <file leaf-file-name="es_impoters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/src/importers/es_impoters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="150" column="90" lean-forward="false" selection-start-line="150" selection-start-column="90" selection-end-line="150" selection-end-column="90" />
+            <state relative-caret-position="240">
+              <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -63,8 +61,8 @@
       <file leaf-file-name="connections.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/src/connections/connections.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="58" column="80" lean-forward="false" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
+            <state relative-caret-position="165">
+              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -73,11 +71,41 @@
       <file leaf-file-name="collectors_importers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/src/importers/collectors_importers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-588">
-              <caret line="98" column="53" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="53" />
+            <state relative-caret-position="156">
+              <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="collector_importers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datalab/tests/collector_importers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="miscellaneous.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datalab_importers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalab/src/importers/datalab_importers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -87,28 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
               <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="111" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datalab_importers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/tests/datalab_importers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collector_importers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/tests/collector_importers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -144,6 +150,7 @@
       <find>collector_datalab_period</find>
       <find>utcnow</find>
       <find>csv_vltlog_opslog_filter</find>
+      <find>cre</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,7 +177,6 @@
         <option value="$PROJECT_DIR$/datalab/miscellaneous.py" />
         <option value="$PROJECT_DIR$/datalab/tests/datalab_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/collectors_importers.py" />
-        <option value="$PROJECT_DIR$/datalab/tests/collector_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/samp_importers.py" />
         <option value="$PROJECT_DIR$/datalab/tests/elastic_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/kairos_importers.py" />
@@ -180,6 +186,7 @@
         <option value="$PROJECT_DIR$/datalab/src/connections/connections.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/es_impoters.py" />
         <option value="$PROJECT_DIR$/datalab/tests/csv_importers.py" />
+        <option value="$PROJECT_DIR$/datalab/tests/collector_importers.py" />
       </list>
     </option>
   </component>
@@ -308,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in csv_importers.py">
+  <component name="RunManager" selected="Python tests.Unittests in collector_importers.py">
     <configuration name="Unittests in collector_importers.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -391,8 +398,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in csv_importers.py" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in collector_importers.py" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in collector_importers.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in csv_importers.py" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in elastic_importers.py" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in datalab_importers.py" />
         <item index="4" class="java.lang.String" itemvalue="Python.vltlog" />
@@ -416,34 +423,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 12h 43m 12s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 12h 43m 26s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 12h 44m 22s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 12h 45m 41s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 12h 58m 13s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 13h 26m 18s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 13h 29m 37s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 13h 35m 03s.xml">
-      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    <history-entry file="Unittests_in_collector_importers_py - 2017.11.03 at 16h 47m 10s.xml">
+      <configuration name="Unittests in collector_importers.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 13h 50m 44s.xml">
       <configuration name="Unittests in csv_importers.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 14h 04m 59s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 14h 13m 38s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 14h 14m 14s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 14h 16m 28s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 15h 15m 05s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 15h 15m 12s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 15h 15m 38s.xml">
+      <configuration name="Unittests in csv_importers.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_csv_importers_py - 2017.11.03 at 15h 20m 53s.xml">
       <configuration name="Unittests in csv_importers.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -460,12 +467,12 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3206785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17528272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3224432" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.29159936" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49857953" sideWeight="0.80775446" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40198863" sideWeight="0.86995155" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.80775446" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2627841" sideWeight="0.86995155" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.4806139" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -543,22 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="37" column="14" lean-forward="false" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/libs/cmreslogging/handlers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/loggers/datalab_loggers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="111" lean-forward="false" selection-start-line="11" selection-start-column="111" selection-end-line="11" selection-end-column="111" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -640,16 +631,6 @@
           <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
           <folding>
             <element signature="e#32#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -773,14 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/importers/datalab_importers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/src/importers/samp_importers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -807,16 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/tests/collector_importers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/tests/csv_importer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -830,16 +793,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/importers/collectors_importers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-588">
-          <caret line="98" column="53" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,24 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/importers/csv_importers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="177" column="25" lean-forward="false" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/connections/connections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="58" column="80" lean-forward="false" selection-start-line="58" selection-start-column="80" selection-end-line="58" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/tests/elastic_importers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -895,23 +830,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/loggers/datalab_loggers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/libs/cmreslogging/handlers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-485">
+          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/importers/datalab_importers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/importers/csv_importers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="177" column="25" lean-forward="false" selection-start-line="177" selection-start-column="25" selection-end-line="177" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/connections/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/src/importers/es_impoters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="150" column="90" lean-forward="false" selection-start-line="150" selection-start-column="90" selection-end-line="150" selection-end-column="90" />
+        <state relative-caret-position="240">
+          <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="55" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/importers/collectors_importers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="95" column="4" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/tests/csv_importers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="95" column="97" lean-forward="false" selection-start-line="95" selection-start-column="97" selection-end-line="95" selection-end-column="97" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-970">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/tests/collector_importers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
