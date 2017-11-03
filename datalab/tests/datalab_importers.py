@@ -60,15 +60,15 @@ class MyTestCase(unittest.TestCase):
                  'LOG', 'TESTER_DATALAB_INSERT', 'ESTONOESUNNUMERO', 'La perfeccion.', '', 0, '', '')]
         kairos_server = "http://134.171.189.10:8080"
         es_object = es_connection_setUp("134.171.189.10:9200")
-        (kairos_response, n_data_inserted, es_ok, es_result) = insert_datalab(data, kairos_server, es_object)
+        (kairos_response, n_data_inserted, es_ok, es_result) = insert_datalab(data, kairos_server, es_object, index_suffix="pruebas")
         time.sleep(UPDATETIME)
         self.assertEqual(kairos_response.status_code, 204)
         self.assertEqual(_get_number_data_points("http://134.171.189.10:8080", 'TESTER_DATALAB_INSERT'),
                          len(list(filter(kairos_filter, data))))
-        self.assertTrue(_es_is_data(es_object, index="opslog", doc_type="opslog", id="9bde7bc7e466ab8dd1fa7f0e9b9482ec"))
-        self.assertTrue(_es_is_data(es_object, index="vltlog", doc_type="log", id="afa98a536c513056f6e7349c58d22390"))
-        es_object.delete(index="opslog", doc_type="opslog", id="9bde7bc7e466ab8dd1fa7f0e9b9482ec")
-        es_object.delete(index="vltlog", doc_type="log", id="afa98a536c513056f6e7349c58d22390")
+        self.assertTrue(_es_is_data(es_object, index="opslog-pruebas", doc_type="opslog", id="9bde7bc7e466ab8dd1fa7f0e9b9482ec"))
+        self.assertTrue(_es_is_data(es_object, index="vltlog-pruebas", doc_type="log", id="afa98a536c513056f6e7349c58d22390"))
+        es_object.delete(index="opslog-pruebas", doc_type="opslog", id="9bde7bc7e466ab8dd1fa7f0e9b9482ec")
+        es_object.delete(index="vltlog-pruebas", doc_type="log", id="afa98a536c513056f6e7349c58d22390")
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@ import datetime, time
 
 from elasticsearch.helpers import parallel_bulk
 
+from datalab.miscellaneous import SuffixNameFrecuency, _SUFFIX_FRECUENCY_FUNCION_DICT
 from datalab.src.connections.connections import db_execute_query
 from datalab.src.importers.datalab_importers import insert_datalab
 from datalab.src.importers.es_impoters import ES_VLTLOG_OPSLOG_GENERATORS_DATA, ES_BASIC_DOC_TYPES_FILTERS, \
@@ -50,7 +51,8 @@ def _getcollector_backwards_piglet(es_object, index, doc_type):
 
 def collector_datalab(db_connection, sql_sentence, sql_args, kairos_server, es_object, kairos_filter=kairos_filter,
                       kairos_parser=kairos_parser,
-                      indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS, doc_types=ES_BASIC_DOC_TYPES,
+                      indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
+                      index_suffix=None, doc_types=ES_BASIC_DOC_TYPES,
                       doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS, es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
                       bulk_fn=parallel_bulk, fetchsize=1000):
     # es = es_connection_setUp([es_server])
@@ -64,7 +66,8 @@ def collector_datalab(db_connection, sql_sentence, sql_args, kairos_server, es_o
         (kairos_response, n_data_inserted, es_ok, es_result) = insert_datalab(data, kairos_server, es_object,
                                                                               kairos_filter,
                                                                               kairos_parser,
-                                                                              indexes, indexes_filters, doc_types,
+                                                                              indexes, indexes_filters,
+                                                                              index_suffix, doc_types,
                                                                               doc_types_filters, es_generator_data,
                                                                               bulk_fn)
         data = cursor.fetchmany(fetchsize)
@@ -74,39 +77,39 @@ def collector_datalab(db_connection, sql_sentence, sql_args, kairos_server, es_o
 def collector_datalab_period(db_connection, period, kairos_server, es_object, kairos_filter=kairos_filter,
                              kairos_parser=kairos_parser,
                              indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
+                             index_suffix=None,
                              doc_types=ES_BASIC_DOC_TYPES,
                              doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
                              es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
                              bulk_fn=parallel_bulk, fetchsize=1000):
     return collector_datalab(db_connection, "SELECT * FROM alog WHERE timestamp BETWEEN %s and %s", period,
-                             kairos_server, es_object, kairos_filter,kairos_parser, indexes, indexes_filters,
-                             doc_types,
+                             kairos_server, es_object, kairos_filter, kairos_parser, indexes, indexes_filters,
+                             index_suffix, doc_types,
                              doc_types_filters, es_generator_data, bulk_fn, fetchsize)
-
 
 
 db_logger = datalab_loggers.datalab_logger(name="collector_presentLogger", index_es="collector_present_pigglet",
                                            my_format=datalab_loggers.DATALAB_LOGGER_FORMAT)
 lastInserted_logger = db_logger.datalab_logger
 
+
 def collector_datalab_present(db_connection, kairos_server, es_object, delay=100, kairos_filter=kairos_filter,
                               kairos_parser=kairos_parser,
                               indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
-                              doc_types=ES_BASIC_DOC_TYPES,
+                              index_suffix_frecuency=SuffixNameFrecuency.NONE, doc_types=ES_BASIC_DOC_TYPES,
                               doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
                               es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
                               bulk_fn=parallel_bulk, fetchsize=1000):
-
     delay = datetime.timedelta(seconds=delay)
     try:
         past = _getcollector_present_piglet("collector_present_pigglet", "python_log")  # datetime.datetime.now();
         present = past + datetime.timedelta(seconds=100)
-        while datetime.datetime.now() - present > 0: # Tenemos retraso! Hay que ponerse al dia e insertar sin delay
+        while datetime.datetime.now() - present > 0:  # Tenemos retraso! Hay que ponerse al dia e insertar sin delay
+            index_suffix= _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
             (response, n_data_inserted, es_ok, es_result) = collector_datalab_period(db_connection, (past, present),
                                                                                      kairos_server, es_object,
-                                                                                     kairos_filter,
-                                                                                     kairos_parser,
-                                                                                     indexes, indexes_filters,
+                                                                                     kairos_filter, kairos_parser,
+                                                                                     indexes, indexes_filters, index_suffix,
                                                                                      doc_types, doc_types_filters,
                                                                                      es_generator_data, bulk_fn,
                                                                                      fetchsize)
@@ -116,20 +119,19 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
                                      extra={'collector_piglet': present})
 
             past = present;
-            present = past + datetime.timedelta(seconds=100)+datetime.timedelta(hours=3)
+            present = past + datetime.timedelta(seconds=100) + datetime.timedelta(hours=3)
         present = datetime.datetime.now()
     except:  # No se ha encontrado al indice, esto quiere decir que nunca se ejecuto el collector
-        past = datetime.datetime.now()-datetime.timedelta(seconds=delay.total_seconds())+datetime.timedelta(hours=3)
+        past = datetime.datetime.now() - datetime.timedelta(seconds=delay.total_seconds()) + datetime.timedelta(hours=3)
         present = past + datetime.timedelta(seconds=delay.total_seconds());
-
 
     time.sleep(delay.total_seconds())
     while True:
+        index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
         (response, n_data_inserted, es_ok, es_result) = collector_datalab_period(db_connection, (past, present),
                                                                                  kairos_server, es_object,
-                                                                                 kairos_filter,
-                                                                                 kairos_parser,
-                                                                                 indexes, indexes_filters,
+                                                                                 kairos_filter, kairos_parser,
+                                                                                 indexes, indexes_filters, index_suffix,
                                                                                  doc_types, doc_types_filters,
                                                                                  es_generator_data, bulk_fn,
                                                                                  fetchsize)
@@ -141,19 +143,20 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
         kairos_keep_alive(kairos_server, 'keepAlive.collector.present')
         past = present;
         datalab_logger_collecter_inserters.info(
-            "collector_datalab_present : delay time %s" % str(datetime.datetime.now()+datetime.timedelta(hours=3)-past))
-        present = datetime.datetime.now()+datetime.timedelta(hours=3)
+            "collector_datalab_present : delay time %s" % str(
+                datetime.datetime.now() + datetime.timedelta(hours=3) - past))
+        present = datetime.datetime.now() + datetime.timedelta(hours=3)
         if present - past > delay:
-            x=(present - past)-delay
+            x = (present - past) - delay
             if x > delay:
                 time.sleep(0)
             else:
                 time.sleep(int((delay - x).total_seconds()))
         else:
             time.sleep(delay.total_seconds())
-            #print(past, present)
-            #print('2', int(((past + delay - present) + delay).total_seconds()))
-            #time.sleep(int(((past + delay - present) + delay).total_seconds()))  # We try to control possible fluction inserting with delay time from alog.
+            # print(past, present)
+            # print('2', int(((past + delay - present) + delay).total_seconds()))
+            # time.sleep(int(((past + delay - present) + delay).total_seconds()))  # We try to control possible fluction inserting with delay time from alog.
         if DEBUG:  return (response, n_data_inserted, es_ok, es_result)
 
 
@@ -161,11 +164,11 @@ db2_logger = datalab_loggers.datalab_logger(name="collector_backwardsLogger", in
                                             my_format=datalab_loggers.DATALAB_LOGGER_FORMAT)
 collector_backwardsLogger = db2_logger.datalab_logger
 
+
 def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-1, kairos_filter=kairos_filter,
                                 kairos_parser=kairos_parser,
-                                indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
-                                doc_types=ES_BASIC_DOC_TYPES,
-                                doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
+                                indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS, index_suffix_frecuency=SuffixNameFrecuency.NONE,
+                                doc_types=ES_BASIC_DOC_TYPES, doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
                                 es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
                                 bulk_fn=parallel_bulk, fetchsize=1000):
     if start != -1:
@@ -178,8 +181,9 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
             past = datetime.datetime.now();
     present = past - datetime.timedelta(seconds=100);
     while True:
-        result = collector_datalab_period(db_connection, (present, past),kairos_server, es_object , kairos_filter,
-                                          kairos_parser, indexes, indexes_filters, doc_types, doc_types_filters,
+        index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
+        result = collector_datalab_period(db_connection, (present, past), kairos_server, es_object, kairos_filter,
+                                          kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
                                           es_generator_data, bulk_fn, fetchsize)
         datalab_logger_collecter_inserters.info(
             "collector_datalab_backwards : Inserted period: time %s - %s" % (present, past))
@@ -192,29 +196,32 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
         if DEBUG:  return result
 
 
-
 def collector_datalab_period_2(db_connection, kairos_server, es_object, period, kairos_filter=kairos_filter,
-                                kairos_parser=kairos_parser,
-                                indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
-                                doc_types=ES_BASIC_DOC_TYPES,
-                                doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
-                                es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
-                                bulk_fn=parallel_bulk, fetchsize=1000):
+                               kairos_parser=kairos_parser,
+                               indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS, index_suffix_frecuency=SuffixNameFrecuency.NONE,
+                               doc_types=ES_BASIC_DOC_TYPES,
+                               doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
+                               es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA,
+                               bulk_fn=parallel_bulk, fetchsize=1000):
     past = period[0]
     while True:
         if period[1] - past > datetime.timedelta(seconds=100):
             present = past + datetime.timedelta(seconds=100)
-            datalab_logger_collecter_inserters.info("collector_datalab_period : Inserted period: time %s - %s" % (past, present))
+            datalab_logger_collecter_inserters.info(
+                "collector_datalab_period : Inserted period: time %s - %s" % (past, present))
+            index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
             collector_datalab_period(db_connection, (past, present), es_object, kairos_server, kairos_filter,
-                                          kairos_parser, indexes, indexes_filters, doc_types, doc_types_filters,
-                                          es_generator_data, bulk_fn, fetchsize)
+                                     kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
+                                     es_generator_data, bulk_fn, fetchsize)
             past = present
         else:
             present = period[1]
-            datalab_logger_collecter_inserters.info("collector_datalab_period : Inserted period: time %s - %s" % (past, present))
-            collector_datalab_period(db_connection, (past, present), kairos_server, es_object,  kairos_filter,
-                                          kairos_parser, indexes, indexes_filters, doc_types, doc_types_filters,
-                                          es_generator_data, bulk_fn, fetchsize)
+            datalab_logger_collecter_inserters.info(
+                "collector_datalab_period : Inserted period: time %s - %s" % (past, present))
+            index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
+            collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
+                                     kairos_parser, indexes, indexes_filters, index_suffix,doc_types, doc_types_filters,
+                                     es_generator_data, bulk_fn, fetchsize)
             datalab_logger_collecter_inserters.info(
                 "collector_datalab_period Finish: Terminado de insertar period: time %s - %s" % (period[0], period[1]))
             break;

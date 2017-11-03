@@ -115,72 +115,19 @@ ES_BASIC_DOC_TYPES_FILTERS = {
 }
 
 
-class IndexNameFrequency(Enum):
-    """ Index type supported
-    the handler supports
-    - Daily indices
-    - Weekly indices
-    - Monthly indices
-    - Year indices
-    - None indices
-    """
-    DAILY = 0
-    WEEKLY = 1
-    MONTHLY = 2
-    YEARLY = 3
-    NONE = 4
-
-def _get_daily_index_name(es_index_name):
-    """ Returns elasticearch index name
-    :param: index_name the prefix to be used in the index
-    :return: A srting containing the elasticsearch indexname used which should include the date.
-    """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y.%m.%d'))
-
-
-def _get_weekly_index_name(es_index_name):
+def _get_index_with_suffix_name(es_index_name, suffix):
     """ Return elasticsearch index name
     :param: index_name the prefix to be used in the index
-    :return: A srting containing the elasticsearch indexname used which should include the date and specific week
+    :return: A srting containing the elasticsearch indexname used which should include the suffix
     """
-    current_date = datetime.datetime.utcnow()
-    start_of_the_week = current_date - datetime.timedelta(days=current_date.weekday())
-    return "{0!s}-{1!s}".format(es_index_name, start_of_the_week.strftime('%Y.%m.%d'))
+    if suffix:
+        return "{0!s}-{1!s}".format(es_index_name, suffix)
+    else:
+        return es_index_name
 
-
-def _get_monthly_index_name(es_index_name):
-    """ Return elasticsearch index name
-    :param: index_name the prefix to be used in the index
-    :return: A srting containing the elasticsearch indexname used which should include the date and specific moth
-    """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y.%m'))
-
-
-def _get_yearly_index_name(es_index_name):
-    """ Return elasticsearch index name
-    :param: index_name the prefix to be used in the index
-    :return: A srting containing the elasticsearch indexname used which should include the date and specific year
-    """
-    return "{0!s}-{1!s}".format(es_index_name, datetime.datetime.utcnow().strftime('%Y'))
-
-def _get_only_index_name(es_index_name):
-    """ Return elasticsearch index name
-    :param: index_name the prefix to be used in the index
-    :return: A srting containing the elasticsearch indexname used which should include the date and specific year
-    """
-    return "{0!s}".format(es_index_name)
-
-
-_INDEX_FREQUENCY_FUNCION_DICT = {
-    IndexNameFrequency.DAILY: _get_daily_index_name,
-    IndexNameFrequency.WEEKLY: _get_weekly_index_name,
-    IndexNameFrequency.MONTHLY: _get_monthly_index_name,
-    IndexNameFrequency.YEARLY: _get_yearly_index_name,
-    IndexNameFrequency.NONE: _get_only_index_name
-}
 
 def es_insert(es_object, data, indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
-              indexnamefrecuency=IndexNameFrequency.NONE,
+              index_suffix=None,
               doc_types=ES_BASIC_DOC_TYPES, doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
               es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA, bulk_fn=parallel_bulk):
     ok = True;
@@ -190,7 +137,7 @@ def es_insert(es_object, data, indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASI
         for doc_type in doc_types[index]:
             for ok, result in bulk_fn(es_object, es_generator_data[index](
                     list(filter(doc_types_filters[index][doc_type], list(filter(indexes_filters[index], data)))),
-                    _INDEX_FREQUENCY_FUNCION_DICT[indexnamefrecuency](index),
+                    _get_index_with_suffix_name(index, index_suffix),
                     doc_type)): pass;
     datalab_logger_es_inserters.info(
         "ES : Finish Insert Chunk : Ok? %s" % ok)  # WE DON'T COLLECT RESULTS FOR PERFORMENCES REASONS
@@ -199,18 +146,19 @@ def es_insert(es_object, data, indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASI
 
 
 def es_insert_2(es_server, data, indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
-                indexnamefrecuency=IndexNameFrequency.NONE,
+                index_suffix=None,
                 doc_types=ES_BASIC_DOC_TYPES, doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
-                es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA, bulk_fn=parallel_bulk):
+                es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA, bulk_fn=streaming_bulk):
     ok = True;
     result = "NO_INSERTED"
     es_object = es_connection_setUp(es_server)
     datalab_logger_es_inserters.info("ES : Inserting data")
+
     for index in indexes:
         for doc_type in doc_types[index]:
             for ok, result in bulk_fn(es_object, es_generator_data[index](
                     list(filter(doc_types_filters[index][doc_type], list(filter(indexes_filters[index], data)))),
-                    _INDEX_FREQUENCY_FUNCION_DICT[indexnamefrecuency](index),
+                    _get_index_with_suffix_name(index, index_suffix),
                     doc_type)): pass;
     datalab_logger_es_inserters.info(
         "ES : Finish Insert Chunk : Ok? %s" % ok)  # WE DON'T COLLECT RESULTS FOR PERFORMENCES REASONS

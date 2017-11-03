@@ -56,4 +56,4 @@ def es_connection_setUp(es_server):
     :return: connection objetc
     """
     datalab_logger_connections.info("ES : setUp connection")
-    return  Elasticsearch(es_server, timeout=30, ignore=[400, 404])
+    return  Elasticsearch(es_server, timeout=30, ignore=[400, 404],  maxsize=100)

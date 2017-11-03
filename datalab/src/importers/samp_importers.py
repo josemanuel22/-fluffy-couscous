@@ -96,7 +96,6 @@ def samp_import(path_to_samp,kairos_server):
 def _g(x,y):
     return x<y
 
-
 UPDATETIME=100
 def samp_online_import(path_to_samp,kairos_server):
     """
