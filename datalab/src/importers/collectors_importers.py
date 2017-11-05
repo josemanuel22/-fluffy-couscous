@@ -102,7 +102,7 @@ def collector_datalab_present(db_connection, kairos_server, es_object, delay=100
                               bulk_fn=parallel_bulk, fetchsize=1000):
     delay = datetime.timedelta(seconds=delay)
     try:
-        past = _getcollector_present_piglet("collector_present_pigglet", "python_log")  # datetime.datetime.now();
+        past = _getcollector_present_piglet(es_object,"collector_present_pigglet", "python_log")  # datetime.datetime.now();
         present = past + datetime.timedelta(seconds=100)
         while datetime.datetime.utcnow() - present > 0:  # Tenemos retraso! Hay que ponerse al dia e insertar sin delay
             index_suffix= _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
@@ -175,7 +175,7 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
         past = start
     else:
         try:
-            past = _getcollector_backwards_piglet("collector_backwards_piglet",
+            past = _getcollector_backwards_piglet(es_object,"collector_backwards_piglet",
                                                   "python_log")  # datetime.datetime.now();
         except:
             past = datetime.datetime.utcnow();
