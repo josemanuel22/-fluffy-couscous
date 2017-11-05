@@ -33,7 +33,7 @@ def _get_number_data_points(server, metric):
 class MyTestCase(unittest.TestCase):
     def test_samp_import(self):
         #path_to_samp="/Users/user/PycharmProjects/datalab/datalab/tests/vtosfSamplingAxis.2017-07-29T220529.ALT.samp"
-        path_to_samp="/Users/user/PycharmProjects/datalab/datalab/tests/lt4az.torque.2017-01-05T23:43:15.samp"
+        path_to_samp="/Users/user/PycharmProjects/datalab/datalab/tests/vtosfSamplingAxis.2017-07-29T220529.ALT.samp"
         kairos_server="http://134.171.189.10:8080"
         samp_import(path_to_samp, kairos_server)
         print(_get_number_data_points(kairos_server, "trackingAxis.vta.alt.POSLOOP.pos"))

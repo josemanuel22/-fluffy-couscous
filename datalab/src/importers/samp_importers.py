@@ -20,7 +20,7 @@ def _samp_kairos_parser(keyname, tags, tsp_kv):
     t=datetime.datetime.strptime(str(tsp_kv[0])+str(tsp_kv[1]),"%Y-%m-%d%H:%M:%S.%f")
     data_point_parsed = {
         "name": keyname,
-        "timestamp": int(time.mktime(t.timetuple()))*1000 + t.microsecond, #kairosdb time in miliseconds
+        "timestamp": int(time.mktime(t.timetuple()))*1000 + int(t.microsecond/1000), #kairosdb time in miliseconds
         "value"    : float(tsp_kv[2]),
         "tags": tags
     }

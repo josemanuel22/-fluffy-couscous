@@ -57,7 +57,7 @@ CSV_VLTLOG_OPSLOG_HEADER = ['typelog', 'tm', 'loghost', 'env', 'procname', 'proc
 
 def csv_kairos_import(path_to_csv, kairos_server="http://192.168.1.10:8080", header=CSV_VLTLOG_OPSLOG_HEADER,
                       csv_filter=csv_opslog_filter, kairos_parser=csv_kairos_parser):
-    chunksize = int((int(os.path.getsize(path_to_csv) + 1) / int(miscellaneous.CSV_NUM_BYTESXLINE)) / 4)
+    chunksize = 50000
     df = pd.read_csv(filepath_or_buffer=path_to_csv, names=header, compression='gzip', na_values=[""],
                      parse_dates=['tm'], engine='c', encoding='latin-1', usecols=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
                      na_filter=False, chunksize=chunksize)
@@ -155,7 +155,7 @@ def csv_es_import(path_to_csv, es_server, chunksize=50000, header=CSV_VLTLOG_OPS
                   doc_types=CSV_ES_BASIC_DOC_TYPES, doc_types_filters=CSV_ES_BASIC_DOC_TYPES_FILTERS,
                   es_generator_data=CSV_ES_VLTLOG_OPSLOG_GENERATORS_DATA):
     df = pd.read_csv(filepath_or_buffer=path_to_csv, names=header, compression='gzip', na_values=[""],
-                     parse_dates=['tm'], engine='c', encoding='latin-1', usecols=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                     parse_dates=['tm'], engine='c', encoding='latin-1',
                      na_filter=False,
                      chunksize=chunksize)
 
