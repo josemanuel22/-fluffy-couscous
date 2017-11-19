@@ -14,56 +14,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="datalab_importers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/src/importers/datalab_importers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#187#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="es_impoters.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="es_impoters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/src/importers/es_impoters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="137" column="74" lean-forward="true" selection-start-line="137" selection-start-column="74" selection-end-line="137" selection-end-column="74" />
+            <state relative-caret-position="120">
+              <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="opslog.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/templates/mapping/opslog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vltlog.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/templates/mapping/vltlog.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="516" column="0" lean-forward="false" selection-start-line="516" selection-start-column="0" selection-end-line="516" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collectors_importers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datalab/src/importers/collectors_importers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="65" column="71" lean-forward="false" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -71,9 +27,35 @@
       <file leaf-file-name="csv_importers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datalab/src/importers/csv_importers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2611">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="222">
+              <caret line="166" column="124" lean-forward="false" selection-start-line="166" selection-start-column="124" selection-end-line="166" selection-end-column="124" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1395">
+              <caret line="93" column="5" lean-forward="false" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+              <folding>
+                <element signature="e#42#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="miscellaneous.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,7 +116,6 @@
         <option value="$PROJECT_DIR$/datalab/templates/mapping/opslog.py" />
         <option value="$PROJECT_DIR$/datalab/src/es_monitoring/es_monitoring.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/datalab_importers.py" />
-        <option value="$PROJECT_DIR$/datalab/miscellaneous.py" />
         <option value="$PROJECT_DIR$/datalab/tests/datalab_importers.py" />
         <option value="$PROJECT_DIR$/datalab/tests/elastic_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/kairos_importers.py" />
@@ -143,11 +124,13 @@
         <option value="$PROJECT_DIR$/datalab/src/connections/connections.py" />
         <option value="$PROJECT_DIR$/datalab/tests/csv_importers.py" />
         <option value="$PROJECT_DIR$/datalab/tests/collector_importers.py" />
-        <option value="$PROJECT_DIR$/datalab/src/importers/csv_importers.py" />
         <option value="$PROJECT_DIR$/datalab/tests/samp_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/samp_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/collectors_importers.py" />
         <option value="$PROJECT_DIR$/datalab/src/importers/es_impoters.py" />
+        <option value="$PROJECT_DIR$/datalab/miscellaneous.py" />
+        <option value="$PROJECT_DIR$/datalab/src/importers/csv_importers.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -177,63 +160,6 @@
             <path>
               <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
               <item name="datalab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="connections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="es_monitoring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="importers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="mapping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="datalab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="datalab" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -424,7 +350,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11147011" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2463651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3224432" sideWeight="0.49353796" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.29159936" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -467,13 +393,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datalab/libs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/lib/python3.6/logging/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28477">
@@ -741,13 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datalab/src/importers/kairos_importers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -760,14 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="611">
           <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datalab/src/importers/csv_importers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2611">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -792,7 +696,7 @@
         <state relative-caret-position="234">
           <caret line="65" column="71" lean-forward="false" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -802,16 +706,46 @@
         <state relative-caret-position="210">
           <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
-            <element signature="e#0#187#0" expanded="true" />
+            <element signature="e#0#187#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/datalab/src/importers/es_impoters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="137" column="74" lean-forward="true" selection-start-line="137" selection-start-column="74" selection-end-line="137" selection-end-column="74" />
+        <state relative-caret-position="120">
+          <caret line="146" column="0" lean-forward="true" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/miscellaneous.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="39" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datalab/src/importers/csv_importers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="166" column="124" lean-forward="false" selection-start-line="166" selection-start-column="124" selection-end-line="166" selection-end-column="124" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="93" column="5" lean-forward="false" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="e#42#85#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
