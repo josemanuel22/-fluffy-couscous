@@ -129,7 +129,7 @@ def _get_index_with_suffix_name(es_index_name, suffix):
 def es_insert(es_object, data, indexes=ES_BASIC_INDEXES, indexes_filters=ES_BASIC_INDEXES_FILTERS,
               index_suffix=None,
               doc_types=ES_BASIC_DOC_TYPES, doc_types_filters=ES_BASIC_DOC_TYPES_FILTERS,
-              es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA, bulk_fn=parallel_bulk):
+              es_generator_data=ES_VLTLOG_OPSLOG_GENERATORS_DATA, bulk_fn=streaming_bulk):
     ok = True;
     result = "NO_INSERTED"
     datalab_logger_es_inserters.info("ES : Inserting data")

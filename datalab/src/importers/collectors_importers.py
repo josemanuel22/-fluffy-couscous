@@ -175,8 +175,7 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
         past = start
     else:
         try:
-            past = _getcollector_backwards_piglet(es_object,"collector_backwards_piglet",
-                                                  "python_log")  # datetime.datetime.now();
+            past = _getcollector_backwards_piglet(es_object,"collector_backwards_piglet", "python_log")  # datetime.datetime.now();
         except:
             past = datetime.datetime.utcnow();
     present = past - datetime.timedelta(seconds=100);
