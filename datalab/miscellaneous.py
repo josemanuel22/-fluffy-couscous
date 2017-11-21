@@ -3,6 +3,7 @@ import re, math
 import datetime
 from enum import Enum
 
+CONNECTION_TIMEOUT_PAUSE = 60
 
 def clean_for_kairos(s):
     """
