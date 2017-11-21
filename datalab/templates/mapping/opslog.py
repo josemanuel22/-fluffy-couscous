@@ -59,7 +59,7 @@ OPSLOG_MAPPING = {
                     }
                 },
                 "keywvalue": {
-                    "type": "float"
+                    "type": "double"
                 },
                 "loghost": {
                     "type": "text",
@@ -116,18 +116,23 @@ OPSLOG_MAPPING = {
 
 
 if __name__ == '__main__':
-    if __name__ == '__main__':
-        # ELASTICSEARCH CLIENT PYTHON API BUG put_template doesn't work
-        # from elasticsearch import Elasticsearch
-        # es = Elasticsearch("http://134.171.189.10")
-        # es.put_template(id="opslog", body=OPSLOG_MAPPING)
-        # es.get_template(id="opslog")
+    # ELASTICSEARCH CLIENT PYTHON API BUG put_template doesn't work
+    # from elasticsearch import Elasticsearch
+    # es = Elasticsearch("http://134.171.189.10")
+    # es.put_template(id="opslog", body=OPSLOG_MAPPING)
+    # es.get_template(id="opslog")
 
-        import requests, json
+    import requests, json
 
-        url = "http://134.171.189.10:9200/_template/opslog"
-        headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
-        r = requests.post(url, data=json.dumps(OPSLOG_MAPPING), headers=headers)
+    #Delete de template
+    url = "http://134.171.189.10:9200/_template/opslog"
+    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+    r = requests.delete(url, headers=headers)
+
+    #Create the new template
+    url = "http://134.171.189.10:9200/_template/opslog"
+    headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+    r = requests.post(url, data=json.dumps(OPSLOG_MAPPING), headers=headers)
 
 
 
