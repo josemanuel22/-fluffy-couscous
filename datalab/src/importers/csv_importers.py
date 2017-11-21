@@ -165,7 +165,8 @@ def csv_es_import(path_to_csv, es_server, chunksize=50000, header=CSV_VLTLOG_OPS
         try:
            result = es_insert_2(es_server, chunk.values, indexes, indexes_filters, index_suffix,
                                                      doc_types, doc_types_filters, es_generator_data)  # ,callback=callBack)
-        except ConnectionTimeout: #THE GC is doing hard work
+        except ConnectionTimeout as timeout: #THE GC is doing hard work
+            datalab_logger_csvInserters.error(timeout)
             time.sleep(miscellaneous.CONNECTION_TIMEOUT_PAUSE)
     return result
 
@@ -182,7 +183,8 @@ def csv_import_file(path_to_csv, kairos_server, es_server, es_chunksize=50000,
         kairos_result=kairos_insert(chunk.values, kairos_server, kairos_filter, kairos_parser)  # ,callback=callBack)
         try:
             es_result=es_insert_2(es_server, chunk.values, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters, es_generator_data)
-        except ConnectionTimeout: #THE GC is doing hard work
+        except ConnectionTimeout as timeout: #THE GC is doing hard work
+            datalab_logger_csvInserters.error(timeout)
             time.sleep(miscellaneous.CONNECTION_TIMEOUT_PAUSE)
     return (kairos_result, es_result)
 
