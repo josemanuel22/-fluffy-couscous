@@ -22,6 +22,9 @@ datalab/src/importers/online_reader.py
 datalab/src/importers/samp_importers.py
 datalab/src/loggers/__init__.py
 datalab/src/loggers/datalab_loggers.py
+datalab/src/queries/2pandas.py
+datalab/src/queries/__init__.py
+datalab/src/queries/esQueries.py
 datalab/templates/__init__.py
 datalab/templates/mapping/__init__.py
 datalab/templates/mapping/opslog.py
