@@ -218,7 +218,7 @@ def collector_datalab_period_2(db_connection, kairos_server, es_object, period, 
             datalab_logger_collecter_inserters.info(
                 "collector_datalab_period : Inserted period: time %s - %s" % (past, present))
             index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
-            collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
+            collector_datalab_period(db_connection, (past, present), es_object, kairos_server, es_object, kairos_filter,
                                      kairos_parser, indexes, indexes_filters, index_suffix,doc_types, doc_types_filters,
                                      es_generator_data, bulk_fn, fetchsize)
             datalab_logger_collecter_inserters.info(

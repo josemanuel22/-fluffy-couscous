@@ -8,6 +8,8 @@ datalab/libs/cmreslogging/serializers.py
 datalab/src/__init__.py
 datalab/src/connections/__init__.py
 datalab/src/connections/connections.py
+datalab/src/currators/__init__.py
+datalab/src/currators/delete_old_indexes.py
 datalab/src/es_monitoring/__init__.py
 datalab/src/es_monitoring/es_monitoring.py
 datalab/src/importers/__init__.py

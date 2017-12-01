@@ -69,3 +69,5 @@ _SUFFIX_FRECUENCY_FUNCION_DICT = {
     SuffixNameFrecuency.YEARLY: _get_yearly_suffix_name,
     SuffixNameFrecuency.NONE: _get_none_suffix_name
 }
+
+

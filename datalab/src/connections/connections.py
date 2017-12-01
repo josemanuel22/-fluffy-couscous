@@ -43,9 +43,9 @@ def db_execute_query(db_connection, query, query_args):
     note:: see http://initd.org/psycopg/docs/usage.html
     """
     cursor = db_connection.cursor()
-    datalab_logger_connections.info("reading database[Query. May Take Time]...")
+    #datalab_logger_connections.info("reading database[Query. May Take Time]...")
     cursor.execute(query, query_args)
-    datalab_logger_connections.info("finish to query database")
+    #datalab_logger_connections.info("finish to query database")
     return cursor
 
 

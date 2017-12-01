@@ -1,5 +1,4 @@
 
-
 import curator
 import elasticsearch
 
