@@ -1,7 +1,9 @@
 import datetime, time
 
+from elasticsearch import ConnectionTimeout
 from elasticsearch.helpers import parallel_bulk
 
+from datalab import miscellaneous
 from datalab.miscellaneous import SuffixNameFrecuency, _SUFFIX_FRECUENCY_FUNCION_DICT
 from datalab.src.connections.connections import db_execute_query
 from datalab.src.importers.datalab_importers import insert_datalab
@@ -181,9 +183,13 @@ def collector_datalab_backwards(db_connection, kairos_server, es_object, start=-
     present = past - datetime.timedelta(seconds=100);
     while True:
         index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
-        result = collector_datalab_period(db_connection, (present, past), kairos_server, es_object, kairos_filter,
-                                          kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
-                                          es_generator_data, bulk_fn, fetchsize)
+        try:
+            result = collector_datalab_period(db_connection, (present, past), kairos_server, es_object, kairos_filter,
+                                              kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
+                                              es_generator_data, bulk_fn, fetchsize)
+        except ConnectionTimeout as timeout:  # THE GC is doing hard work
+            datalab_logger_collecter_inserters.error(timeout)
+            time.sleep(miscellaneous.CONNECTION_TIMEOUT_PAUSE)
         datalab_logger_collecter_inserters.info(
             "collector_datalab_backwards : Inserted period: time %s - %s" % (present, past))
         # datalab_logger_inserted.debug(result[0].text)
@@ -209,18 +215,26 @@ def collector_datalab_period_2(db_connection, kairos_server, es_object, period, 
             datalab_logger_collecter_inserters.info(
                 "collector_datalab_period : Inserted period: time %s - %s" % (past, present))
             index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
-            collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
-                                     kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
-                                     es_generator_data, bulk_fn, fetchsize)
+            try:
+                collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
+                                         kairos_parser, indexes, indexes_filters, index_suffix, doc_types, doc_types_filters,
+                                         es_generator_data, bulk_fn, fetchsize)
+            except ConnectionTimeout as timeout:  # THE GC is doing hard work
+                datalab_logger_collecter_inserters.error(timeout)
+                time.sleep(miscellaneous.CONNECTION_TIMEOUT_PAUSE)
             past = present
         else:
             present = period[1]
             datalab_logger_collecter_inserters.info(
                 "collector_datalab_period : Inserted period: time %s - %s" % (past, present))
             index_suffix = _SUFFIX_FRECUENCY_FUNCION_DICT[index_suffix_frecuency](present)
-            collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
-                                     kairos_parser, indexes, indexes_filters, index_suffix,doc_types, doc_types_filters,
-                                     es_generator_data, bulk_fn, fetchsize)
+            try:
+                collector_datalab_period(db_connection, (past, present), kairos_server, es_object, kairos_filter,
+                                         kairos_parser, indexes, indexes_filters, index_suffix,doc_types, doc_types_filters,
+                                         es_generator_data, bulk_fn, fetchsize)
+            except ConnectionTimeout as timeout:
+                datalab_logger_collecter_inserters.error(timeout)
+                time.sleep(miscellaneous.CONNECTION_TIMEOUT_PAUSE)
             datalab_logger_collecter_inserters.info(
                 "collector_datalab_period Finish: Terminado de insertar period: time %s - %s" % (period[0], period[1]))
             break;
